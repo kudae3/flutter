@@ -18,15 +18,27 @@ class MyApp extends StatelessWidget {
       home: Scaffold(
         
         appBar: AppBar(
-          title: Text('My Flutter'),
-          centerTitle: false,
-          leading: Icon(Icons.login),
+          title: Text('My Flutter', style: TextStyle(fontSize: 16)),
           actions: [
+            Icon(Icons.login),
+            SizedBox(width: 8),
             Text('Login'),
           ],
           backgroundColor: Colors.teal,
         ),
         
+        drawer: Drawer(
+          child: Column(
+            children: [
+              DrawerHeader(child: Text('Header')),
+              ListTile(
+                title: Text('Drawer Item'),
+                onTap: () => {},
+              ),
+            ],
+          ),
+        ),
+
         bottomNavigationBar: NavigationBar(
           destinations: [
             NavigationDestination(icon: Icon(Icons.home), label: 'Home'),
