@@ -4,6 +4,8 @@ void main() {
   runApp(const MyApp());
 }
 
+String name = 'Hello, Flutter!';
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -31,24 +33,9 @@ class MyApp extends StatelessWidget {
             selectedIndex: 0,
             // onDestinationSelected: (int val) => {print('Selected: $val')},
             ),
-          
-          floatingActionButton: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              FloatingActionButton(
-                onPressed: () => {},
-                child: Icon(Icons.add),
-              ),
-              SizedBox(height: 10),
-              FloatingActionButton(
-                onPressed: () => {},
-                child: Icon(Icons.remove),
-              ),
-            ],
-          ),
         
           body: Center(
-            child: Text('Hello, Flutter!'),
+            child: Text(name),
           ),
         ),
       ),
