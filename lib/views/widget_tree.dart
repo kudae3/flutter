@@ -14,12 +14,13 @@ class WidgetTree extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return ValueListenableBuilder(valueListenable: lightThemeNotifier, builder:(context, value, child) {
+      return Scaffold(
       appBar: AppBar(
         title: Text('My Flutter', style: TextStyle(fontSize: 16)),
         centerTitle: false,
         actions: [
-          IconButton(onPressed: () => {}, icon: Icon(Icons.light_mode))
+          IconButton(onPressed: () => {lightThemeNotifier.value = !lightThemeNotifier.value}, icon: lightThemeNotifier.value ? Icon(Icons.dark_mode) : Icon(Icons.light_mode))
         ],
       ),
       body: ValueListenableBuilder(
@@ -29,7 +30,7 @@ class WidgetTree extends StatelessWidget {
         },
       ),
       bottomNavigationBar: NavbarWidget(),
-    
-    );
+      );
+    });
   }
 }
