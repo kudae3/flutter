@@ -1,5 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:my_project_1/views/pages/home_page.dart';
+import 'package:my_project_1/views/pages/profile_page.dart';
 import 'package:my_project_1/widgets/navbar_widget.dart';
+
+List<Widget> pages = [
+  HomePage(),
+  ProfilePage()
+];
 
 class WidgetTree extends StatelessWidget {
   const WidgetTree({super.key});
@@ -11,7 +18,7 @@ class WidgetTree extends StatelessWidget {
           appBar: AppBar(
             title: Text('My Flutter', style: TextStyle(fontSize: 16)),
           ),
-        
+          body: pages[0],
           bottomNavigationBar: NavbarWidget(),
         
         );
