@@ -5,8 +5,25 @@ class ProfilePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-        child: Text('Welcome to the Profile Page!'),
-      );
+    return Padding(
+      padding: const EdgeInsets.all(12.0),
+      child: Column(
+        children: [
+          TextField(
+            decoration: InputDecoration(
+              labelText: 'Your name',
+              border: OutlineInputBorder(),
+            ),
+          ),
+          SizedBox(height: 20),
+          TextField(
+            decoration: InputDecoration(
+              labelText: 'Your email',
+              border: OutlineInputBorder(),
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }
