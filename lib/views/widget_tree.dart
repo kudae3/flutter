@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_project_1/data/notifiers.dart';
 import 'package:my_project_1/views/pages/home_page.dart';
 import 'package:my_project_1/views/pages/profile_page.dart';
 import 'package:my_project_1/widgets/navbar_widget.dart';
@@ -17,7 +18,12 @@ class WidgetTree extends StatelessWidget {
       appBar: AppBar(
         title: Text('My Flutter', style: TextStyle(fontSize: 16)),
       ),
-      body: pages[0],
+      body: ValueListenableBuilder(
+        valueListenable:  currentIndexNotifier,
+        builder: (BuildContext context, dynamic value, Widget? child) {
+          return  pages.elementAt(value);
+        },
+      ),
       bottomNavigationBar: NavbarWidget(),
     
     );
