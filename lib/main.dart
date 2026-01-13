@@ -14,7 +14,16 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.teal, brightness: Brightness.dark),
       ),
-      home: const Scaffold(
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('My Flutter'),
+          centerTitle: false,
+          leading: Icon(Icons.login),
+          actions: [
+            Text('Login'),
+          ],
+          backgroundColor: Colors.teal,
+        ),
         body: Center(
           child: Text('Hello, Flutter!'),
         ),
