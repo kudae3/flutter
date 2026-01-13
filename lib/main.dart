@@ -24,6 +24,14 @@ class MyApp extends StatelessWidget {
           ],
           backgroundColor: Colors.teal,
         ),
+        bottomNavigationBar: NavigationBar(
+          destinations: [
+            NavigationDestination(icon: Icon(Icons.home), label: 'Home'),
+            NavigationDestination(icon: Icon(Icons.settings), label: 'Settings'),
+          ],
+          selectedIndex: 1,
+          onDestinationSelected: (int val) => {print('Selected: $val')},
+          ),
         body: Center(
           child: Text('Hello, Flutter!'),
         ),
