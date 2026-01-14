@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:my_project_1/views/pages/login_page.dart';
 import 'package:my_project_1/views/widget_tree.dart';
 
 class WelcomePage extends StatelessWidget {
@@ -49,7 +50,7 @@ class WelcomePage extends StatelessWidget {
                 onPressed: () => {
                   Navigator.pushReplacement(context, 
                     MaterialPageRoute(builder: (context) {
-                      return WidgetTree();
+                      return LoginPage();
                     })
                   )
                 }, 
