@@ -34,6 +34,32 @@ class _SettingPageState extends State<SettingPage> {
           padding: const EdgeInsets.all(12.0),
           child: Column(
             children: [
+              
+              OutlinedButton(
+                style: OutlinedButton.styleFrom(
+                  padding: EdgeInsets.symmetric(horizontal: 50, vertical: 20),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(30)
+                  )
+                ),
+                onPressed: () => showDialog(
+                  context: context, 
+                  builder: (context) {
+                    return AlertDialog(
+                      title: Text('Alert Dialog'),
+                      content: Text('This is an alert dialog.'),
+                      actions: [
+                        TextButton(
+                          onPressed: () => Navigator.pop(context), 
+                          child: Text('Close')
+                        )
+                      ],
+                    );
+                  }
+                ),
+                child: Text('Alert Dialog'),
+              ),
+          
               DropdownButton(
                 value: selectedValue,
                 hint: Text('Select an item'),
