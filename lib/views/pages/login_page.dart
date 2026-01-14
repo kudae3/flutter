@@ -6,6 +6,58 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: HeroWidget(title: 'LOGIN PAGE'));
+    return Scaffold(
+      body: Column(
+        children: [
+          HeroWidget(title: 'LOGIN PAGE'),
+          // Additional login form elements would go here
+          
+          const SizedBox(height: 30),
+    
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: TextField(
+              decoration: InputDecoration(
+                labelText: 'Username',
+                border: OutlineInputBorder(
+                  borderRadius:BorderRadius.circular(20)
+                ),
+              ),
+            ),
+          ),
+
+          const SizedBox(height: 20),
+
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: TextField(
+              decoration: InputDecoration(
+                labelText: 'Username',
+                border: OutlineInputBorder(
+                  borderRadius:BorderRadius.circular(20)
+                ),
+              ),
+            ),
+          ),
+
+          const SizedBox(height: 30),
+
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: FilledButton(onPressed:() {
+            
+            }, 
+            style: FilledButton.styleFrom(
+              minimumSize: Size(double.infinity, 50),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(30)
+              )
+            ),
+            child: Text('Login')),
+          )
+    
+        ],
+      )
+    );
   }
 }

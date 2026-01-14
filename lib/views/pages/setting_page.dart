@@ -90,6 +90,7 @@ class _SettingPageState extends State<SettingPage> {
                   border: OutlineInputBorder(),
                 ),
               ),
+              
               SizedBox(height: 20),
               TextField(
                 controller: emailController,
