@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 import 'package:my_project_1/views/widget_tree.dart';
 import 'package:my_project_1/widgets/hero_widget.dart';
 
@@ -14,7 +15,7 @@ class WelcomePage extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              HeroWidget(),
+              Lottie.asset('assets/lotties/Fish_Loader.json'),
               Text('Welcome to the App!', style: TextStyle(fontSize: 21)),
               SizedBox(height: 23),
               FilledButton(onPressed: () => {
