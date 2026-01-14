@@ -58,7 +58,19 @@ class _ProfilePageState extends State<ProfilePage> {
               this.value = value!;
             });
           },),
+
+          Switch(value: value, onChanged:(newValue) {
+            setState(() {
+              value = newValue;
+            });
+          }),
           
+          SwitchListTile(title: Text('Newsletter'), value: value, onChanged:(newValue) {
+            setState(() {
+              value = newValue;
+            });
+          }),
+
           ValueListenableBuilder(
             valueListenable: nameController, builder:(context, value, child) {
             return Text('Your name is: ${nameController.text}');
