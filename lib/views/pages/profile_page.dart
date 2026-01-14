@@ -12,6 +12,7 @@ class _ProfilePageState extends State<ProfilePage> {
   TextEditingController emailController = TextEditingController();
   
   bool value = false;
+  double sliderValue = 0.0;
 
   @override
   void dispose() {
@@ -65,7 +66,7 @@ class _ProfilePageState extends State<ProfilePage> {
             });
           }),
           
-          SwitchListTile(title: Text('Newsletter'), value: value, onChanged:(newValue) {
+          SwitchListTile.adaptive(title: Text('Newsletter'), value: value, onChanged:(newValue) {
             setState(() {
               value = newValue;
             });
@@ -82,6 +83,18 @@ class _ProfilePageState extends State<ProfilePage> {
               return Text('Your email is: ${emailController.text}');
             },
           ),
+
+
+          Slider(
+            value: sliderValue, 
+            max: 100,
+            divisions: 5,
+            onChanged: (newValue) {
+              setState(() {
+                sliderValue = newValue;
+              });
+              print(sliderValue);
+            }),
           
           
         ],
