@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:my_project_1/views/widget_tree.dart';
-import 'package:my_project_1/widgets/hero_widget.dart';
 
 class WelcomePage extends StatelessWidget {
   const WelcomePage({super.key});
@@ -16,11 +15,11 @@ class WelcomePage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Lottie.asset('assets/lotties/Fish_Loader.json'),
-              Text('Welcome to the App!', style: TextStyle(fontSize: 24, letterSpacing: 1.5)),
+              FittedBox(child: Text('Welcome to the App!', style: TextStyle(fontSize: 30.0, letterSpacing: 10.0))),
               SizedBox(height: 23),
               FilledButton(
                 style: ElevatedButton.styleFrom(
-                  padding: EdgeInsets.symmetric(horizontal: 40, vertical: 20)
+                  padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20)
                 ),
                 onPressed: () => {
                   Navigator.pushReplacement(context, 
@@ -30,10 +29,33 @@ class WelcomePage extends StatelessWidget {
                   )
                 }, 
               child: const Text(
-                  'Login',
+                  'Get Started',
                   style: TextStyle(
                     color: Colors.black,
-                    fontSize: 16,
+                    fontSize: 12,
+                    fontWeight: FontWeight.w400,
+                  ),
+                ),
+              ),
+              
+              SizedBox(height: 10),
+              
+              OutlinedButton(
+                style: OutlinedButton.styleFrom(
+                  padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20)
+                ),
+                onPressed: () => {
+                  Navigator.pushReplacement(context, 
+                    MaterialPageRoute(builder: (context) {
+                      return WidgetTree();
+                    })
+                  )
+                }, 
+              child: const Text(
+                  'Get Started',
+                  style: TextStyle(
+                    color: Colors.teal,
+                    fontSize: 12,
                     fontWeight: FontWeight.w400,
                   ),
                 ),
