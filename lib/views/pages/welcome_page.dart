@@ -19,7 +19,8 @@ class WelcomePage extends StatelessWidget {
               SizedBox(height: 23),
               FilledButton(
                 style: ElevatedButton.styleFrom(
-                  padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20)
+                  // padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20)
+                  minimumSize: Size(double.infinity, 50)
                 ),
                 onPressed: () => {
                   Navigator.pushReplacement(context, 
@@ -42,7 +43,8 @@ class WelcomePage extends StatelessWidget {
               
               OutlinedButton(
                 style: OutlinedButton.styleFrom(
-                  padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20)
+                  // padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+                  minimumSize: Size(double.infinity, 50)
                 ),
                 onPressed: () => {
                   Navigator.pushReplacement(context, 
@@ -54,9 +56,9 @@ class WelcomePage extends StatelessWidget {
               child: const Text(
                   'Get Started',
                   style: TextStyle(
-                    color: Colors.teal,
+                    color: Colors.tealAccent,
                     fontSize: 12,
-                    fontWeight: FontWeight.w400,
+                    fontWeight: FontWeight.w500,
                   ),
                 ),
               ),
