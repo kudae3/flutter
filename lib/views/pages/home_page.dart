@@ -18,6 +18,7 @@ class HomePage extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.all(16.0),
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text('Card Title', style: TextStyle(color: Colors.green, fontSize: 16, fontWeight: FontWeight.bold)),
                   SizedBox(height: 10),
