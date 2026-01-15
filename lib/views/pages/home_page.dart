@@ -9,7 +9,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     
-    List<String> courseList = [
+    List<Map<String, String>> courseList = [
       KValue.course1,
       KValue.course2,
       KValue.course3,
@@ -30,8 +30,8 @@ class HomePage extends StatelessWidget {
 
             ...List.generate(courseList.length, (index) => 
               CardWidget(
-                title: courseList[index], 
-                content: 'This is the content of card number $index.'
+                title: courseList[index]['title']!, 
+                content: courseList[index]['description']!
               )
             ),
 
