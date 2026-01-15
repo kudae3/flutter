@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_project_1/views/widget_tree.dart';
 import 'package:my_project_1/widgets/hero_widget.dart';
 
 class LoginPage extends StatefulWidget {
@@ -33,6 +34,7 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           HeroWidget(title: 'LOGIN PAGE'),
           
@@ -71,7 +73,7 @@ class _LoginPageState extends State<LoginPage> {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: FilledButton(onPressed:() {
-            
+              return onLogin();
             }, 
             style: FilledButton.styleFrom(
               minimumSize: Size(double.infinity, 50),
@@ -99,5 +101,22 @@ class _LoginPageState extends State<LoginPage> {
         ],
       )
     );
+  }
+  void onLogin() {
+    String email = emailController.text;
+    String password = passwordController.text;
+
+    if(email == confirmedEmail && password == confirmedPassword) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Login Successful!'))
+      );
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context){
+        return WidgetTree();
+      }));
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Invalid email or password'))
+      );
+    }
   }
 }
