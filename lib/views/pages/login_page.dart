@@ -40,7 +40,7 @@ class _LoginPageState extends State<LoginPage> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          HeroWidget(title: 'LOGIN PAGE'),
+          HeroWidget(title: 'LOGIN'),
           
           const SizedBox(height: 30),
     
@@ -62,6 +62,7 @@ class _LoginPageState extends State<LoginPage> {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: TextField(
+              obscureText: true,
               controller: passwordController,
               decoration: InputDecoration(
                 labelText: 'Password',
