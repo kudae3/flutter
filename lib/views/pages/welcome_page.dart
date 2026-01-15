@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:my_project_1/views/pages/login_page.dart';
+import 'package:my_project_1/views/pages/onboarding_page.dart';
 
 class WelcomePage extends StatelessWidget {
   const WelcomePage({super.key});
@@ -25,7 +26,7 @@ class WelcomePage extends StatelessWidget {
                 onPressed: () => {
                   Navigator.push(context, 
                     MaterialPageRoute(builder: (context) {
-                      return LoginPage();
+                      return OnboardingPage();
                     })
                   )
                 }, 
