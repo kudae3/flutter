@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:my_project_1/views/widget_tree.dart';
-import 'package:my_project_1/widgets/hero_widget.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -15,8 +14,8 @@ class _LoginPageState extends State<LoginPage> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   
-  String confirmedEmail = '123';
-  String confirmedPassword = '456';
+  String confirmedEmail = 'kudaesithu2@gmail.com';
+  String confirmedPassword = '123456';
 
   @override
   void initState() {
