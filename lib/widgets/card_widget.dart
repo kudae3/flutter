@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 
 class CardWidget extends StatelessWidget {
-  const CardWidget({super.key});
+
+  final String title;
+  final String content;
+
+  const CardWidget({super.key, required this.title, required this.content});
 
   @override
   Widget build(BuildContext context) {
@@ -11,9 +15,9 @@ class CardWidget extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('Card Title', style: TextStyle(color: Colors.green, fontSize: 16, fontWeight: FontWeight.bold)),
+                  Text(title, style: TextStyle(color: Colors.green, fontSize: 16, fontWeight: FontWeight.bold)),
                   SizedBox(height: 10),
-                  Text('This is a card widget with some content.'),
+                  Text(content, style: TextStyle(fontSize: 14)),
                 ],
               ),
             ),
