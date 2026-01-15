@@ -13,6 +13,9 @@ class _LoginPageState extends State<LoginPage> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   
+  String confirmedEmail = '123';
+  String confirmedPassword = '456';
+
   @override
   void initState() {
     super.initState();
@@ -79,19 +82,19 @@ class _LoginPageState extends State<LoginPage> {
             child: Text('Login')),
           ),
     
-          ValueListenableBuilder(
-            valueListenable: emailController, 
-            builder:(context, value, child) {
-              return Text('Email: ${emailController.text}');
-            },
-          ),
+          // ValueListenableBuilder(
+          //   valueListenable: emailController, 
+          //   builder:(context, value, child) {
+          //     return Text('Email: ${emailController.text}');
+          //   },
+          // ),
 
-          ValueListenableBuilder(
-            valueListenable: passwordController, 
-            builder:(context, value, child) {
-              return Text('Password: ${passwordController.text}');
-            },
-          )
+          // ValueListenableBuilder(
+          //   valueListenable: passwordController, 
+          //   builder:(context, value, child) {
+          //     return Text('Password: ${passwordController.text}');
+          //   },
+          // )
 
         ],
       )
