@@ -9,18 +9,22 @@ class CardWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-            child: Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(title, style: TextStyle(color: Colors.teal, fontSize: 16, fontWeight: FontWeight.bold)),
-                  SizedBox(height: 10),
-                  Text(content, style: TextStyle(fontSize: 14)),
-                ],
+    return SizedBox(
+      width: 800,
+      height: 150,
+      child: Card(
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(title, style: TextStyle(color: Colors.teal, fontSize: 16, fontWeight: FontWeight.bold)),
+                    SizedBox(height: 10),
+                    Text(content, style: TextStyle(fontSize: 14)),
+                  ],
+                ),
               ),
             ),
-          );
+    );
   }
 }
