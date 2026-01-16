@@ -34,88 +34,77 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(),
-      body: LayoutBuilder(builder: (context, constraints) {
-        return SingleChildScrollView(
-        child: ConstrainedBox(
-          constraints: BoxConstraints(
-            minHeight: constraints.maxHeight,
-          ),
+Widget build(BuildContext context) {
+  final size = MediaQuery.of(context).size;
+
+  return Scaffold(
+    appBar: AppBar(),
+    body: Center(
+      child: SingleChildScrollView(
+        padding: const EdgeInsets.symmetric(vertical: 24),
+        child: FractionallySizedBox(
+          widthFactor: size.width > 700 ? 0.5 : 0.9,
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisSize: MainAxisSize.min,
             children: [
-              Lottie.asset('assets/lotties/Login.json'),  
-              
-              const SizedBox(height: 30),
-              
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: TextField(
-                  controller: emailController,
-                  decoration: InputDecoration(
-                    labelText: 'Email',
-                    border: OutlineInputBorder(
-                      borderRadius:BorderRadius.circular(10)
-                    ),
+              // Animation
+              SizedBox(
+                height: size.width > 700 ? 250 : 180,
+                child: Lottie.asset(
+                  'assets/lotties/Login.json',
+                  fit: BoxFit.contain,
+                ),
+              ),
+
+              const SizedBox(height: 32),
+
+              // Email
+              TextField(
+                controller: emailController,
+                decoration: InputDecoration(
+                  labelText: 'Email',
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
                   ),
                 ),
               ),
-          
+
               const SizedBox(height: 20),
-          
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: TextField(
-                  obscureText: true,
-                  controller: passwordController,
-                  decoration: InputDecoration(
-                    labelText: 'Password',
-                    border: OutlineInputBorder(
-                      borderRadius:BorderRadius.circular(10)
-                    ),
+
+              // Password
+              TextField(
+                controller: passwordController,
+                obscureText: true,
+                decoration: InputDecoration(
+                  labelText: 'Password',
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
                   ),
                 ),
               ),
-          
-              const SizedBox(height: 20),
-          
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: FilledButton(onPressed:() {
-                  return onLogin();
-                }, 
+
+              const SizedBox(height: 24),
+
+              // Button
+              FilledButton(
+                onPressed: onLogin,
                 style: FilledButton.styleFrom(
-                  minimumSize: Size(double.infinity, 50),
+                  minimumSize: const Size(double.infinity, 50),
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10)
-                  )
+                    borderRadius: BorderRadius.circular(10),
+                  ),
                 ),
-                child: Text('Login')),
+                child: const Text('Login'),
               ),
-              
-              // ValueListenableBuilder(
-              //   valueListenable: emailController, 
-              //   builder:(context, value, child) {
-              //     return Text('Email: ${emailController.text}');
-              //   },
-              // ),
-          
-              // ValueListenableBuilder(
-              //   valueListenable: passwordController, 
-              //   builder:(context, value, child) {
-              //     return Text('Password: ${passwordController.text}');
-              //   },
-              // )
-          
             ],
           ),
         ),
-      );
-      })
-    );
-  }
+      ),
+    ),
+  );
+}
+
+
   void onLogin() {
     String email = emailController.text;
     String password = passwordController.text;
