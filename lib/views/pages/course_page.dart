@@ -3,6 +3,7 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 
 import 'package:my_flutter/data/activity_class.dart';
+import 'package:my_flutter/widgets/hero_widget.dart';
 
 class CoursePage extends StatefulWidget {
   const CoursePage({super.key});
@@ -13,34 +14,63 @@ class CoursePage extends StatefulWidget {
 
 class _CoursePageState extends State<CoursePage> {
   
-    @override
+  late Future<Activity> _activityFuture;
+
+  @override
   void initState() {
     super.initState();
-    getData();
+    _activityFuture = getData();
   }
 
-  void getData() async {
-    final response = await http.get(
-      Uri.parse('https://bored-api.appbrewery.com/random'),
-    );
-
-    if (response.statusCode == 200) {
-      final jsonRes = Activity.fromJson(jsonDecode(response.body) as Map<String, dynamic>);
-      print(jsonRes.activity);
-    } else {
-      throw Exception('Failed to load album');
-    }
+Future<Activity> getData() async {
+  final response = await http.get(
+    Uri.parse('https://bored-api.appbrewery.com/random'),
+  );
+  if (response.statusCode == 200) {
+    return Activity.fromJson(jsonDecode(response.body) as Map<String, dynamic>);
+  } else {
+    throw Exception('Failed to load album');
   }
+}
   
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Course Page'),
-      ),
-      body: Center(
-        child: Text('Welcome to the Course Page!'),
-      ),
-    );
-  }
+@override
+Widget build(BuildContext context) {
+  return Scaffold(
+    appBar: AppBar(
+      title: const Text('Course Page'),
+    ),
+    body: FutureBuilder<Activity>(
+      future: _activityFuture,
+      builder: (context, snapshot) {
+        // Loading
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return const Center(child: CircularProgressIndicator());
+        }
+
+        // Error
+        if (snapshot.hasError) {
+          return Center(
+            child: Text('Error: ${snapshot.error}'),
+          );
+        }
+
+        // Success
+        if (snapshot.hasData) {
+          final activity = snapshot.data!;
+          return Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              HeroWidget(title: activity.type),
+              SizedBox(height: 20),
+              Text(activity.activity),
+            ],
+          );
+        }
+
+        return const SizedBox();
+      },
+    ),
+  );
+}
+
 }
